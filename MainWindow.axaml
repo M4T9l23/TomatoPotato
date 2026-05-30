@@ -1,28 +1,88 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:models="clr-namespace:TomatoPotato.Models"
+        xmlns:models="using:TomatoPotato.Models"
         x:Class="AvaloniaLinuxTest.MainWindow"
-        Title="TomatoPotato 🍅" Width="800" Height="600">
+        Title="TomatoPotato"
+        Width="1080" Height="960"
+        Background="#150029">
 
-  <DockPanel>
+    <Grid Margin="20">
 
-    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="10" Margin="10">
-      <Button Name="BtnPridat" Content="+ Přidat film" />
-      <Button Name="BtnExport" Content="📄 Export do TXT" />
-    </StackPanel>
+        <!-- Main centered content -->
+        <StackPanel Margin="20" Spacing="10" VerticalAlignment="Top">
+            <Viewbox Stretch="Uniform" StretchDirection="Both"
+                     MaxHeight="120" HorizontalAlignment="Center">
+                <Border Padding="20,10" Background="#33FFFFFF" CornerRadius="10">
+                    <TextBlock Text="TomatoPotato!"
+                               FontSize="24" FontWeight="Bold"
+                               Foreground="#FFEDD6"/>
+                </Border>
+            </Viewbox>
 
-    <ListBox Name="ListFilmy" Margin="10">
-      <ListBox.ItemTemplate>
-        <DataTemplate DataType="models:Film">
-          <Grid ColumnDefinitions="*,100,80,80" Margin="5">
-            <TextBlock Grid.Column="0" Text="{Binding Nazev}" FontWeight="Bold" />
-            <TextBlock Grid.Column="1" Text="{Binding Zanr}" />
-            <TextBlock Grid.Column="2" Text="{Binding Hodnoceni, StringFormat='{}{0}/10'}" />
-            <TextBlock Grid.Column="3" Text="{Binding Zhledno}" />
-          </Grid>
-        </DataTemplate>
-      </ListBox.ItemTemplate>
-    </ListBox>
+            <TextBlock Text="Seznam filmů — dvojklikem otevřeš detail."
+                       TextWrapping="Wrap" HorizontalAlignment="Center"
+                       Margin="0,0,0,10" Foreground="#FFEDD6"/>
 
-  </DockPanel>
+            <Border HorizontalAlignment="Center"
+                    CornerRadius="6" Padding="8,4" Margin="0,10,0,0">
+                <TextBlock x:Name="StatusText" Text="" Foreground="#FFEDD6"/>
+            </Border>
+        </StackPanel>
+
+        <!-- Top-right buttons -->
+        <Border Background="#33FFFFFF" CornerRadius="10" Padding="15"
+                HorizontalAlignment="Right" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <Button x:Name="BtnPridat" Content="Pridat" Foreground="#FFEDD6"/>
+                <Button x:Name="BtnExport" Content="Export" Foreground="#FFEDD6"/>
+            </StackPanel>
+        </Border>
+
+        <!-- LEFT-SIDE list of films -->
+        <ListBox x:Name="ListFilmy"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Margin="50,200,0,40"
+                 Width="320"
+                 Background="Transparent"
+                 BorderThickness="0">
+
+            <ListBox.ItemTemplate>
+                <DataTemplate x:DataType="models:Film">
+                    <StackPanel Spacing="4" Margin="0,0,0,12">
+                        <TextBlock Text="{Binding Nazev}"
+                                   Foreground="#FFEDD6"
+                                   FontWeight="Bold"
+                                   Margin="6,0,0,0"/>
+                        <Border Background="#33FFFFFF"
+                                CornerRadius="10"
+                                Padding="12"
+                                MinHeight="60"
+                                Margin="20,0,0,0">
+                            <StackPanel Spacing="2">
+                                <TextBlock Text="{Binding Zanr}"
+                                           Foreground="#FFEDD6"/>
+                                <TextBlock Text="{Binding Popis}"
+                                           Foreground="#FFEDD6"
+                                           TextWrapping="Wrap"/>
+                                <TextBlock Foreground="#FFEDD6">
+                                    <Run Text="Rok: "/><Run Text="{Binding Rok}"/>
+                                    <Run Text=" · Délka: "/><Run Text="{Binding Delka}"/>
+                                    <Run Text=" min · ★ "/><Run Text="{Binding Hodnoceni}"/>
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+            <ListBox.Styles>
+                <Style Selector="ListBoxItem">
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </ListBox.Styles>
+        </ListBox>
+
+    </Grid>
 </Window>

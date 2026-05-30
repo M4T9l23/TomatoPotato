@@ -38,7 +38,10 @@ public partial class MainWindow : Window
             {
                 Title = "Exportovat seznam filmů",
                 SuggestedFileName = "filmy.txt",
-                FileTypeChoices = new[] { new FilePickerFileType("Text") { Patterns = new[] { "*.txt" } } }
+                FileTypeChoices = new[]
+                {
+                    new FilePickerFileType("Text") { Patterns = new[] { "*.txt" } }
+                }
             };
             var file = await StorageProvider.SaveFilePickerAsync(options);
             if (file != null)
