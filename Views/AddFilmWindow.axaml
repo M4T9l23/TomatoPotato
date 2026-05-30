@@ -1,0 +1,45 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TomatoPotato.Views.AddFilmWindow"
+        Title="Přidat film" Width="400" Height="500"
+        WindowStartupLocation="CenterOwner">
+
+  <StackPanel Margin="20" Spacing="10">
+
+    <TextBlock Text="Název:" />
+    <TextBox Name="TxtNazev" />
+
+    <TextBlock Text="Žánr:" />
+    <ComboBox Name="CmbZanr" Width="360">
+      <ComboBoxItem>Akční</ComboBoxItem>
+      <ComboBoxItem>Komedie</ComboBoxItem>
+      <ComboBoxItem>Drama</ComboBoxItem>
+      <ComboBoxItem>Horor</ComboBoxItem>
+      <ComboBoxItem>Sci-Fi</ComboBoxItem>
+      <ComboBoxItem>Animovaný</ComboBoxItem>
+      <ComboBoxItem>Dokumentární</ComboBoxItem>
+    </ComboBox>
+
+    <TextBlock Text="Rok vydání:" />
+    <TextBox Name="TxtRok" />
+
+    <TextBlock Text="Délka (minuty):" />
+    <TextBox Name="TxtDelka" />
+
+    <TextBlock Text="Hodnocení (1-10):" />
+    <TextBox Name="TxtHodnoceni" />
+
+    <TextBlock Text="Popis:" />
+    <TextBox Name="TxtPopis" Height="80" TextWrapping="Wrap" AcceptsReturn="True" />
+
+    <CheckBox Name="ChkZhledno" Content="Zhlédnuto" />
+
+    <TextBlock Name="TxtChyba" Foreground="Red" />
+
+    <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Right">
+      <Button Name="BtnUlozit" Content="Uložit" />
+      <Button Name="BtnZrusit" Content="Zrušit" />
+    </StackPanel>
+
+  </StackPanel>
+</Window>
