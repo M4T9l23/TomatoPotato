@@ -4,3 +4,6 @@ Library for your books and movies - Organize your watched list
   - UI pridat filmy menu
   - Tlacitka pro vsechny funkce?
   - Odstranit film
+  - Duble click pro vice informaci??
+  - Colours
+  - All UI :)
