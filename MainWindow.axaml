@@ -70,7 +70,7 @@
                                    Foreground="#FFEDD6"
                                    FontWeight="Bold"
                                    Margin="6,0,0,0"/>
-                        <Border Background="#33FFFFFF"
+                        <Border Classes="Details" 
                                 CornerRadius="20"
                                 Padding="12"
                                 MinHeight="60"
@@ -96,6 +96,38 @@
                 <Style Selector="ListBoxItem">
                     <Setter Property="Padding" Value="0"/>
                     <Setter Property="Background" Value="Transparent"/>
+                </Style>
+                <Style Selector="ListBoxItem">
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+
+                <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+
+                <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+
+                <Style Selector="ListBoxItem:selected:pointerover /template/ ContentPresenter">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+                
+                <!-- mark the details box when duble clicking -->
+                <Style Selector="Border.Details" >
+                    <Setter Property="Background" Value="#33FFFFFF"/>
+                    <Setter Property="Transitions">
+                        <Transitions>
+                            <BrushTransition Property="Background" Duration="0:0:0.15"/>
+                        </Transitions>
+                    </Setter>
+                </Style>
+                <Style Selector="ListBoxItem:pointerover Border.Details">
+                    <Setter Property="Background" Value="Red"/>
+                </Style>
+                <Style Selector="ListBoxItem:selected Border.Details">
+                    <Setter Property="Background" Value="Brown"/>
                 </Style>
             </ListBox.Styles>
         </ListBox>

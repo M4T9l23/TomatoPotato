@@ -10,7 +10,7 @@
       <TextBox Name="TxtNazev" />
 
       <TextBlock Text="Žánr:" />
-      <ComboBox Name="CmbZanr" Width="360">
+      <ComboBox Name="CmbZanr" Width="400">
         <ComboBoxItem>Akční</ComboBoxItem>
         <ComboBoxItem>Komedie</ComboBoxItem>
         <ComboBoxItem>Drama</ComboBoxItem>
