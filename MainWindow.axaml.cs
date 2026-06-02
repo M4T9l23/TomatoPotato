@@ -29,11 +29,13 @@ public partial class MainWindow : Window
             {
                 var win = new DetailWindow(film);
                 await win.ShowDialog(this);
-
+        
                 if (win.Vysledek == DetailResult.Smazat)
                     _vm.OdstranFilm(film);
                 else if (win.Vysledek == DetailResult.Ulozit)
                     _vm.Uloz();
+                
+                ListFilmy.SelectedItem = null;
             }
         };
 
