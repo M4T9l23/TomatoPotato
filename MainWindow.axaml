@@ -131,6 +131,5 @@
                 </Style>
             </ListBox.Styles>
         </ListBox>
-
     </Grid>
 </Window>
