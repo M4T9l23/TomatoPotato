@@ -7,6 +7,7 @@ Library for your books and movies - Organize your watched list
   - Duble click pro vice informaci??
   - Colours
   - All UI :)
+  - vyhledávání
 
 -------------------------------
 # Zadaní:
