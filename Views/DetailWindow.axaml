@@ -1,7 +1,7 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="TomatoPotato.Views.DetailWindow"
-        Title="Detail filmu" Width="400" Height="450"
+        Title="Detail filmu" Width="400" Height="520"
         WindowStartupLocation="CenterOwner">
 
   <StackPanel Margin="20" Spacing="10">
@@ -10,12 +10,19 @@
     <TextBlock Name="TxtZanr" />
     <TextBlock Name="TxtRok" />
     <TextBlock Name="TxtDelka" />
-    <TextBlock Name="TxtHodnoceni" FontSize="18" Foreground="OrangeRed" />
-    <TextBlock Name="TxtZhledno" />
-    <TextBlock Text="Popis:" FontWeight="Bold" Margin="0,10,0,0" />
     <TextBlock Name="TxtPopis" TextWrapping="Wrap" />
 
-    <Button Name="BtnZavrit" Content="Zavřít" HorizontalAlignment="Right" Margin="0,20,0,0" />
+    <TextBlock Text="Hodnocení (1-10):" Margin="0,10,0,0" />
+    <TextBox Name="TxtHodnoceni" />
+    <TextBlock Name="TxtChyba" Foreground="Red" />
+
+    <CheckBox Name="ChkZhledno" Content="Zhlédnuto" Margin="0,5,0,0" />
+
+    <StackPanel Orientation="Horizontal" Spacing="10" HorizontalAlignment="Right" Margin="0,20,0,0">
+      <Button Name="BtnUlozit" Content="💾 Uložit změny" />
+      <Button Name="BtnSmazat" Content="🗑 Smazat" Foreground="Red" />
+      <Button Name="BtnZavrit" Content="Zavřít" />
+    </StackPanel>
 
   </StackPanel>
 </Window>
