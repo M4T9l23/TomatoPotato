@@ -8,9 +8,9 @@
 
     <Grid Margin="20">
 
-        <!-- Main centered content -->
-        <StackPanel Margin="0,0,0,0" Spacing="1" VerticalAlignment="Top">
-            <Border Background="#33fff" CornerRadius="20" Padding="15" Margin="0,0,0,0">
+        <!-- Header -->
+        <StackPanel Spacing="10" VerticalAlignment="Top">
+            <Border Background="#33FFFFFF" CornerRadius="20" Padding="15">
                 <Grid VerticalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -20,7 +20,7 @@
                     <!-- Left: title -->
                     <Border Grid.Column="0"
                             Padding="20,10"
-                            Background="#33FFF"
+                            Background="#33FFFFFF"
                             CornerRadius="20"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center">
@@ -31,7 +31,7 @@
 
                     <!-- Right: buttons -->
                     <Border Grid.Column="1"
-                            Background="#33FFF"
+                            Background="#33FFFFFF"
                             CornerRadius="20"
                             Padding="15"
                             VerticalAlignment="Center">
@@ -42,16 +42,23 @@
                     </Border>
                 </Grid>
             </Border>
+
+            <TextBlock Text="Seznam filmů — dvojklikem otevřeš detail."
+                       TextWrapping="Wrap"
+                       HorizontalAlignment="Center"
+                       Foreground="#FFEDD6"/>
+
+            <TextBlock x:Name="StatusText"
+                       Text=""
+                       HorizontalAlignment="Center"
+                       Foreground="#FFEDD6"/>
         </StackPanel>
-
-        <!-- Top-right buttons -->
-
 
         <!-- LEFT-SIDE list of films -->
         <ListBox x:Name="ListFilmy"
                  HorizontalAlignment="Left"
                  VerticalAlignment="Top"
-                 Margin="50,300,0,40"
+                 Margin="50,150,0,40"
                  Width="320"
                  Background="Transparent"
                  BorderThickness="0">
@@ -63,7 +70,7 @@
                                    Foreground="#FFEDD6"
                                    FontWeight="Bold"
                                    Margin="6,0,0,0"/>
-                        <Border Background="#33FFF"
+                        <Border Background="#33FFFFFF"
                                 CornerRadius="20"
                                 Padding="12"
                                 MinHeight="60"
