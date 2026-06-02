@@ -23,12 +23,17 @@ public partial class MainWindow : Window
                 _vm.PridejFilm(film);
         };
 
-        ListFilmy.DoubleTapped += (s, e) =>
+        ListFilmy.DoubleTapped += async (s, e) =>
         {
             if (ListFilmy.SelectedItem is Film film)
             {
                 var win = new DetailWindow(film);
-                win.ShowDialog(this);
+                await win.ShowDialog(this);
+
+                if (win.Vysledek == DetailResult.Smazat)
+                    _vm.OdstranFilm(film);
+                else if (win.Vysledek == DetailResult.Ulozit)
+                    _vm.Uloz();
             }
         };
 
@@ -38,10 +43,7 @@ public partial class MainWindow : Window
             {
                 Title = "Exportovat seznam filmů",
                 SuggestedFileName = "filmy.txt",
-                FileTypeChoices = new[]
-                {
-                    new FilePickerFileType("Text") { Patterns = new[] { "*.txt" } }
-                }
+                FileTypeChoices = new[] { new FilePickerFileType("Text") { Patterns = new[] { "*.txt" } } }
             };
             var file = await StorageProvider.SaveFilePickerAsync(options);
             if (file != null)
