@@ -9,40 +9,49 @@
     <Grid Margin="20">
 
         <!-- Main centered content -->
-        <StackPanel Margin="20" Spacing="10" VerticalAlignment="Top">
-            <Viewbox Stretch="Uniform" StretchDirection="Both"
-                     MaxHeight="120" HorizontalAlignment="Center">
-                <Border Padding="20,10" Background="#33FFFFFF" CornerRadius="10">
-                    <TextBlock Text="TomatoPotato!"
-                               FontSize="24" FontWeight="Bold"
-                               Foreground="#FFEDD6"/>
-                </Border>
-            </Viewbox>
+        <StackPanel Margin="0,0,0,0" Spacing="1" VerticalAlignment="Top">
+            <Border Background="#33fff" CornerRadius="20" Padding="15" Margin="0,0,0,0">
+                <Grid VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
 
-            <TextBlock Text="Seznam filmů — dvojklikem otevřeš detail."
-                       TextWrapping="Wrap" HorizontalAlignment="Center"
-                       Margin="0,0,0,10" Foreground="#FFEDD6"/>
+                    <!-- Left: title -->
+                    <Border Grid.Column="0"
+                            Padding="20,10"
+                            Background="#33FFF"
+                            CornerRadius="20"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="TomatoPotato!"
+                                   FontSize="24" FontWeight="Bold"
+                                   Foreground="#FFEDD6"/>
+                    </Border>
 
-            <Border HorizontalAlignment="Center"
-                    CornerRadius="6" Padding="8,4" Margin="0,10,0,0">
-                <TextBlock x:Name="StatusText" Text="" Foreground="#FFEDD6"/>
+                    <!-- Right: buttons -->
+                    <Border Grid.Column="1"
+                            Background="#33FFF"
+                            CornerRadius="20"
+                            Padding="15"
+                            VerticalAlignment="Center">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <Button x:Name="BtnPridat" Content="Pridat" Foreground="#FFEDD6"/>
+                            <Button x:Name="BtnExport" Content="Export" Foreground="#FFEDD6"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
             </Border>
         </StackPanel>
 
         <!-- Top-right buttons -->
-        <Border Background="#33FFFFFF" CornerRadius="10" Padding="15"
-                HorizontalAlignment="Right" VerticalAlignment="Top">
-            <StackPanel Orientation="Horizontal" Spacing="8">
-                <Button x:Name="BtnPridat" Content="Pridat" Foreground="#FFEDD6"/>
-                <Button x:Name="BtnExport" Content="Export" Foreground="#FFEDD6"/>
-            </StackPanel>
-        </Border>
+
 
         <!-- LEFT-SIDE list of films -->
         <ListBox x:Name="ListFilmy"
                  HorizontalAlignment="Left"
                  VerticalAlignment="Top"
-                 Margin="50,200,0,40"
+                 Margin="50,300,0,40"
                  Width="320"
                  Background="Transparent"
                  BorderThickness="0">
@@ -54,8 +63,8 @@
                                    Foreground="#FFEDD6"
                                    FontWeight="Bold"
                                    Margin="6,0,0,0"/>
-                        <Border Background="#33FFFFFF"
-                                CornerRadius="10"
+                        <Border Background="#33FFF"
+                                CornerRadius="20"
                                 Padding="12"
                                 MinHeight="60"
                                 Margin="20,0,0,0">
