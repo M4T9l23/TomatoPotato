@@ -8,7 +8,6 @@
 
     <Grid Margin="20">
 
-        <!-- Header -->
         <StackPanel Spacing="10" VerticalAlignment="Top">
             <Border Background="#33FFFFFF" CornerRadius="20" Padding="15">
                 <Grid VerticalAlignment="Center">
@@ -17,7 +16,6 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- Left: title -->
                     <Border Grid.Column="0"
                             Padding="20,10"
                             Background="#33FFFFFF"
@@ -29,7 +27,6 @@
                                    Foreground="#FFEDD6"/>
                     </Border>
 
-                    <!-- Right: buttons -->
                     <Border Grid.Column="1"
                             Background="#33FFFFFF"
                             CornerRadius="20"
@@ -43,6 +40,37 @@
                 </Grid>
             </Border>
 
+            <!-- Vyhledávání -->
+            <Border Background="#33FFFFFF" CornerRadius="20" Padding="15">
+                <StackPanel Orientation="Horizontal" Spacing="10">
+                    <TextBox x:Name="TxtHledat"
+                             Watermark="Hledat podle názvu..."
+                             Width="250"
+                             Background="#22FFFFFF"
+                             Foreground="#FFEDD6"/>
+                    <ComboBox x:Name="CmbZanrFilter" Width="150"
+                              Background="#22FFFFFF"
+                              Foreground="#FFEDD6">
+                        <ComboBoxItem>Vše</ComboBoxItem>
+                        <ComboBoxItem>Akční</ComboBoxItem>
+                        <ComboBoxItem>Komedie</ComboBoxItem>
+                        <ComboBoxItem>Drama</ComboBoxItem>
+                        <ComboBoxItem>Horor</ComboBoxItem>
+                        <ComboBoxItem>Sci-Fi</ComboBoxItem>
+                        <ComboBoxItem>Animovaný</ComboBoxItem>
+                        <ComboBoxItem>Dokumentární</ComboBoxItem>
+                    </ComboBox>
+                    <TextBlock Text="Min. hodnocení:" Foreground="#FFEDD6" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtMinHodnoceni"
+                             Watermark="0"
+                             Width="60"
+                             Background="#22FFFFFF"
+                             Foreground="#FFEDD6"/>
+                    <Button x:Name="BtnHledat" Content="🔍 Hledat" Foreground="#FFEDD6"/>
+                    <Button x:Name="BtnReset" Content="✕ Reset" Foreground="#FFEDD6"/>
+                </StackPanel>
+            </Border>
+
             <TextBlock Text="Seznam filmů — dvojklikem otevřeš detail."
                        TextWrapping="Wrap"
                        HorizontalAlignment="Center"
@@ -54,11 +82,10 @@
                        Foreground="#FFEDD6"/>
         </StackPanel>
 
-        <!-- LEFT-SIDE list of films -->
         <ListBox x:Name="ListFilmy"
                  HorizontalAlignment="Left"
                  VerticalAlignment="Top"
-                 Margin="50,150,0,40"
+                 Margin="50,250,0,40"
                  Width="320"
                  Background="Transparent"
                  BorderThickness="0">
@@ -70,17 +97,14 @@
                                    Foreground="#FFEDD6"
                                    FontWeight="Bold"
                                    Margin="6,0,0,0"/>
-                        <Border Classes="Details" 
+                        <Border Classes="Details"
                                 CornerRadius="20"
                                 Padding="12"
                                 MinHeight="60"
                                 Margin="20,0,0,0">
                             <StackPanel Spacing="2">
-                                <TextBlock Text="{Binding Zanr}"
-                                           Foreground="#FFEDD6"/>
-                                <TextBlock Text="{Binding Popis}"
-                                           Foreground="#FFEDD6"
-                                           TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Zanr}" Foreground="#FFEDD6"/>
+                                <TextBlock Text="{Binding Popis}" Foreground="#FFEDD6" TextWrapping="Wrap"/>
                                 <TextBlock Foreground="#FFEDD6">
                                     <Run Text="Rok: "/><Run Text="{Binding Rok}"/>
                                     <Run Text=" · Délka: "/><Run Text="{Binding Delka}"/>
@@ -97,25 +121,16 @@
                     <Setter Property="Padding" Value="0"/>
                     <Setter Property="Background" Value="Transparent"/>
                 </Style>
-                <Style Selector="ListBoxItem">
-                    <Setter Property="Padding" Value="0"/>
-                    <Setter Property="Background" Value="Transparent"/>
-                </Style>
-
                 <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter">
                     <Setter Property="Background" Value="Transparent"/>
                 </Style>
-
                 <Style Selector="ListBoxItem:selected /template/ ContentPresenter">
                     <Setter Property="Background" Value="Transparent"/>
                 </Style>
-
                 <Style Selector="ListBoxItem:selected:pointerover /template/ ContentPresenter">
                     <Setter Property="Background" Value="Transparent"/>
                 </Style>
-                
-                <!-- mark the details box when duble clicking -->
-                <Style Selector="Border.Details" >
+                <Style Selector="Border.Details">
                     <Setter Property="Background" Value="#33FFFFFF"/>
                     <Setter Property="Transitions">
                         <Transitions>
